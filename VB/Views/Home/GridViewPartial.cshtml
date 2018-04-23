@@ -1,0 +1,30 @@
+﻿@Html.DevExpress().GridView(settings => {
+    settings.Name = "grid";
+
+    settings.KeyFieldName = "CustomerID";
+    settings.CallbackRouteValues = new { Controller = "Home", Action = "GridViewPartial" };
+    settings.SettingsEditing.UpdateRowRouteValues = new { Controller = "Home", Action = "UpdateGridView" };
+    settings.ClientSideEvents.EndCallback = "onEndCallback";
+    settings.Settings.ShowFilterRow = true;
+    settings.CommandColumn.Visible = true;
+    settings.CommandColumn.EditButton.Visible = true;
+    settings.Columns.Add("CustomerID").Visible = false;
+    settings.Columns.Add("CustomerName");
+    settings.Columns.Add(columnCountry => {
+        columnCountry.Caption = "CountryID";
+        columnCountry.FieldName = "CountryID";
+        columnCountry.ColumnType = MVCxGridViewColumnType.ComboBox;
+        columnCountry.Settings.FilterMode = ColumnFilterMode.DisplayText;
+        ComboBoxProperties propertiesComboBox = columnCountry.PropertiesEdit as ComboBoxProperties;
+        propertiesComboBox.DataSource = E4425.Models.DataProvider.GetCountries();
+        propertiesComboBox.TextField = "CountryName";
+        propertiesComboBox.ValueField = "CountryID";
+        propertiesComboBox.ValueType = typeof(int);
+        columnCountry.SetFilterTemplateContent(c => {
+            Html.RenderPartial("FilterComboBox", E4425.Models.DataProvider.GetCountries());
+        });
+        columnCountry.SetEditItemTemplateContent(c => {
+            ViewData["value"] = c.Grid.GetRowValues(c.Grid.EditingRowVisibleIndex, c.Column.FieldName);
+            Html.RenderPartial("CountryComboBoxPartial", E4425.Models.DataProvider.GetCountries()); });
+    });
+}).Bind(Model).GetHtml()

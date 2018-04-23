@@ -1,0 +1,14 @@
+<script type="text/javascript">
+    var filterText = "";
+    function OnSelectedIndexChanged(s, e) {
+        filterText = s.GetText();
+        grid.AutoFilterByColumn("CountryID", filterText);
+    }
+    function onEndCallback(s, e) {
+        FilterCountryID.SetText(filterText);
+    }
+</script>
+<h3>
+    GridView - How to use Callback Mode for the ComboBox column
+</h3>
+@Html.Partial("GridViewPartial")
