@@ -1,0 +1,25 @@
+@Html.DevExpress().GridView(settings => {
+	settings.Name = "grid";
+	settings.KeyFieldName = "CustomerID";
+	settings.CallbackRouteValues = new { Controller = "Home", Action = "GridViewPartial" };
+	settings.SettingsEditing.UpdateRowRouteValues = new { Controller = "Home", Action = "UpdateGridView" };
+	settings.Settings.ShowFilterRow = true;
+	settings.CommandColumn.Visible = true;
+	settings.CommandColumn.ShowEditButton = true;
+	settings.Columns.Add("CustomerID").Visible = false;
+	settings.Columns.Add("CustomerName");
+	settings.Columns.Add(columnCountry => {
+		columnCountry.Caption = "CountryID";
+		columnCountry.FieldName = "CountryID";
+		columnCountry.ColumnType = MVCxGridViewColumnType.ComboBox;
+		columnCountry.EditorProperties().ComboBox(p => {
+			p.CallbackRouteValues = new { Controller = "Home", Action = "CountryComboBox" };
+			p.ValueField = "CountryID";
+			p.TextField = "CountryName";
+			p.ValueType = typeof(int);
+			p.CallbackPageSize = 20;
+			p.DropDownStyle = DropDownStyle.DropDown;
+			p.BindList(E4425.Models.DataProvider.GetCountries());
+		});
+	});
+}).Bind(Model).GetHtml()
