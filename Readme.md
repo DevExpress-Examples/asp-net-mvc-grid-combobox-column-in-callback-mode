@@ -7,37 +7,44 @@
 <h3>Description</h3>
 
 1.&nbsp;Use the&nbsp;<a href="https://documentation.devexpress.com/#AspNet/DevExpressWebMvcMVCxGridViewColumn_EditorPropertiestopic">MVCxGridViewColumn.EditorProperties</a> method to define an editor at the column level.&nbsp;<br>
-<code lang="cs">settings.Columns.Add(columnCountry =&gt; {
-		columnCountry.Caption = "CountryID";
-		columnCountry.FieldName = "CountryID";
-		columnCountry.ColumnType = MVCxGridViewColumnType.ComboBox;
-		columnCountry.EditorProperties().ComboBox(p =&gt; {
-			p.CallbackRouteValues = new { Controller = "Home", Action = "CountryComboBox" };
-			p.ValueField = "CountryID";
-			p.TextField = "CountryName";
-			p.ValueType = typeof(int);
-			p.CallbackPageSize = 20;
-			p.DropDownStyle = DropDownStyle.DropDown;
-			p.BindList(E4425.Models.DataProvider.GetCountries());
-		});
-	});</code>
-<code lang="vb"> settings.Columns.Add(Sub(columnCountry)
-                          columnCountry.Caption = "CountryID"
-                          columnCountry.FieldName = "CountryID"
-                          columnCountry.ColumnType = MVCxGridViewColumnType.ComboBox
-                          columnCountry.EditorProperties().ComboBox(Sub(p)
-                                                                          p.CallbackRouteValues = New With {.Controller = "Home", .Action = "CountryComboBox"}
-                                                                          p.ValueField = "CountryID"
-                                                                          p.TextField = "CountryName"
-                                                                          p.ValueType = GetType(Integer)
-                                                                          p.DataSource = E4425.Models.DataProvider.GetCountries()
-                                                                          p.CallbackPageSize = 20
-                                                                          p.DropDownStyle = DropDownStyle.DropDown
-									                                      p.BindList(E4425.Models.DataProvider.GetCountries())
-                                                                    End Sub)
-                                                     End Sub)</code>
+
+```cs
+settings.Columns.Add(columnCountry =&gt; {
+    columnCountry.Caption = "CountryID";
+    columnCountry.FieldName = "CountryID";
+    columnCountry.ColumnType = MVCxGridViewColumnType.ComboBox;
+    columnCountry.EditorProperties().ComboBox(p =&gt; {
+        p.CallbackRouteValues = new { Controller = "Home", Action = "CountryComboBox" };
+        p.ValueField = "CountryID";
+        p.TextField = "CountryName";
+        p.ValueType = typeof(int);
+        p.CallbackPageSize = 20;
+        p.DropDownStyle = DropDownStyle.DropDown;
+        p.BindList(E4425.Models.DataProvider.GetCountries());
+    });
+});
+```
+
+```vb
+settings.Columns.Add(Sub(columnCountry)
+    columnCountry.Caption = "CountryID"
+    columnCountry.FieldName = "CountryID"
+    columnCountry.ColumnType = MVCxGridViewColumnType.ComboBox
+    columnCountry.EditorProperties().ComboBox(Sub(p)
+          p.CallbackRouteValues = New With {.Controller = "Home", .Action = "CountryComboBox"}
+          p.ValueField = "CountryID"
+          p.TextField = "CountryName"
+          p.ValueType = GetType(Integer)
+          p.DataSource = E4425.Models.DataProvider.GetCountries()
+          p.CallbackPageSize = 20
+          p.DropDownStyle = DropDownStyle.DropDown
+          p.BindList(E4425.Models.DataProvider.GetCountries())
+    End Sub)
+End Sub)
+```
 2.&nbsp;&nbsp;Use the&nbsp;&nbsp;<a href="https://documentation.devexpress.com/#AspNet/clsDevExpressWebMvcMVCxColumnComboBoxPropertiestopic">MVCxColumnComboBoxProperties</a>&nbsp;class to create combo box settings.&nbsp;The <a href="https://documentation.devexpress.com/#AspNet/DevExpressWebMvcMVCxColumnComboBoxProperties_BindListtopic">MVCxColumnComboBoxProperties.BindList</a> &nbsp;method should be used to bind a column to data.&nbsp;<br>
-<code lang="cs">public static MVCxColumnComboBoxProperties CreateComboBoxColumnProperties() {
+```cs
+public static MVCxColumnComboBoxProperties CreateComboBoxColumnProperties() {
 			MVCxColumnComboBoxProperties p = new MVCxColumnComboBoxProperties();
 			p.CallbackRouteValues = new { Controller = "Home", Action = "CountryComboBox" };
 			p.ValueField = "CountryID";
@@ -47,9 +54,13 @@
 			p.DropDownStyle = DropDownStyle.DropDown;
 			p.BindList(E4425.Models.DataProvider.GetCountries());
 			return p;
-}</code>
+}
+```
+
 <br>
-<code lang="vb">Public Shared Function CreateComboBoxColumnProperties() As MVCxColumnComboBoxProperties
+
+```vb
+Public Shared Function CreateComboBoxColumnProperties() As MVCxColumnComboBoxProperties
 			Dim p As New MVCxColumnComboBoxProperties()
 			p.CallbackRouteValues = New With {Key .Controller = "Home", Key .Action = "CountryComboBox"}
 			p.ValueField = "CountryID"
@@ -59,16 +70,22 @@
 			p.DropDownStyle = DropDownStyle.DropDown
 			p.BindList(E4425.Models.DataProvider.GetCountries())
 			Return p
-End Function</code>
+End Function
+```
 <br>3. Use the&nbsp; <a href="http://help.devexpress.com/#AspNet/DevExpressWebMvcGridExtensionBase_GetComboBoxCallbackResulttopic">GetComboBoxCallbackResult</a>&nbsp;method to handle a combo box callback on the server.<br>
-<code lang="cs">public ActionResult CountryComboBox() {
+```cs
+public ActionResult CountryComboBox() {
             MVCxColumnComboBoxProperties p = E4425.Helpers.CallbackComboBoxHelper.CreateComboBoxColumnProperties();
             return GridViewExtension.GetComboBoxCallbackResult(p); 
-} </code>
-<code lang="vb">Public Function CountryComboBox() As ActionResult
+}
+```
+
+```vb
+Public Function CountryComboBox() As ActionResult
 	Dim p As MVCxColumnComboBoxProperties = E4425.Helpers.CallbackComboBoxHelper.CreateComboBoxColumnProperties()
 	Return GridViewExtension.GetComboBoxCallbackResult(p)
-End Function</code>
+End Function
+```
 
 <br/>
 
