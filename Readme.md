@@ -9,7 +9,7 @@
 <!-- default file list end -->
 # GridView - How to use Callback Mode for the ComboBox column
 <!-- run online -->
-**[[Run Online]](https://codecentral.devexpress.com/e4976)**
+**[[Run Online]](https://codecentral.devexpress.com/e4976/)**
 <!-- run online end -->
 
 
