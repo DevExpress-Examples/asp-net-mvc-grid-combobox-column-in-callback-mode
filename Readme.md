@@ -18,7 +18,7 @@
 
 <h3>Description</h3>
 
-1.&nbsp;Use the&nbsp;<a href="https://documentation.devexpress.com/#AspNet/DevExpressWebMvcMVCxGridViewColumn_EditorPropertiestopic">MVCxGridViewColumn.EditorProperties</a> method to define an editor at the column level.&nbsp;<br>
+1.&nbsp;Use the&nbsp;<a href="https://docs.devexpress.com/AspNetMvc/DevExpress.Web.Mvc.MVCxGridViewColumn.EditorProperties">MVCxGridViewColumn.EditorProperties</a> method to define an editor at the column level.&nbsp;<br>
 
 ```cs
 settings.Columns.Add(columnCountry =&gt; {
@@ -54,7 +54,7 @@ settings.Columns.Add(Sub(columnCountry)
     End Sub)
 End Sub)
 ```
-2.&nbsp;&nbsp;Use the&nbsp;&nbsp;<a href="https://documentation.devexpress.com/#AspNet/clsDevExpressWebMvcMVCxColumnComboBoxPropertiestopic">MVCxColumnComboBoxProperties</a>&nbsp;class to create combo box settings.&nbsp;The <a href="https://documentation.devexpress.com/#AspNet/DevExpressWebMvcMVCxColumnComboBoxProperties_BindListtopic">MVCxColumnComboBoxProperties.BindList</a> &nbsp;method should be used to bind a column to data.&nbsp;<br>
+2.&nbsp;&nbsp;Use the&nbsp;&nbsp;<a href="https://docs.devexpress.com/AspNetMvc/DevExpress.Web.Mvc.MVCxColumnComboBoxProperties">MVCxColumnComboBoxProperties</a>&nbsp;class to create combo box settings.&nbsp;The <a href="https://documentation.devexpress.com/#AspNet/DevExpressWebMvcMVCxColumnComboBoxProperties_BindListtopic">MVCxColumnComboBoxProperties.BindList</a> &nbsp;method should be used to bind a column to data.&nbsp;<br>
 ```cs
 public static MVCxColumnComboBoxProperties CreateComboBoxColumnProperties() {
 			MVCxColumnComboBoxProperties p = new MVCxColumnComboBoxProperties();
