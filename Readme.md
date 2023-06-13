@@ -3,7 +3,7 @@
 **[[Run Online]](https://codecentral.devexpress.com/e4976/)**
 <!-- run online end -->
 
-This example demonstrates how to create a column editor, bind is to a data source, and configure the editor's callback functionality.
+This example demonstrates how to create a column editor, bind it to a data source, and configure the editor's callback functionality.
 
 ![ComboBox column in callback mode](CallbackMode.png)
 
