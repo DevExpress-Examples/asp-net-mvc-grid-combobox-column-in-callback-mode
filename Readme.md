@@ -3,7 +3,7 @@
 **[[Run Online]](https://codecentral.devexpress.com/e4976/)**
 <!-- run online end -->
 
-This example demonstrates how to create a column editor, bind it to a data source, and configure the editor's callback functionality.
+This example demonstrates how to create a column editor, bind it to a data source, and configure editor callback requirements.
 
 ![ComboBox column in callback mode](CallbackMode.png)
 
@@ -28,7 +28,7 @@ settings.Columns.Add(columnCountry => {
 });
 ```
 
-Use the [MVCxColumnComboBoxProperties](https://docs.devexpress.com/AspNetMvc/DevExpress.Web.Mvc.MVCxColumnComboBoxProperties) class to specify the editor's settings. Call the [BindList](https://docs.devexpress.com/AspNetMvc/DevExpress.Web.Mvc.MVCxColumnComboBoxProperties.BindList.overloads) method to bind the column to a data source.
+Use the [MVCxColumnComboBoxProperties](https://docs.devexpress.com/AspNetMvc/DevExpress.Web.Mvc.MVCxColumnComboBoxProperties) class to specify editor settings. Call the [BindList](https://docs.devexpress.com/AspNetMvc/DevExpress.Web.Mvc.MVCxColumnComboBoxProperties.BindList.overloads) method to bind the column to a data source.
 
 ```cs
 public static MVCxColumnComboBoxProperties CreateComboBoxColumnProperties() {
