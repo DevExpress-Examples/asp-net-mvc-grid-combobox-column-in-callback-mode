@@ -5,7 +5,7 @@
 <!-- default badges end -->
 # Grid View for ASP.NET MVC - How to use a combo box column in callback mode
 <!-- run online -->
-**[[Run Online]](https://codecentral.devexpress.com/e4976/)**
+**[[Run Online]](https://codecentral.devexpress.com/128550871/)**
 <!-- run online end -->
 
 This example demonstrates how to create a column editor, bind it to a data source, and configure editor callback requirements.
